@@ -56,12 +56,8 @@ public class Recipe {
                 System.out.println("Please select a recipe.");
                 showRecipes();
                 String recipeChosen = input.nextLine();
-                for(int i=0; i<RecipeCollection.size();i++){
-                    String recipeName = RecipeCollection.get(i).name;
-                    if(recipeName.equals(recipeChosen)){
-                        RecipeCollection.get(i).removeRecipe(RecipeCollection.get(i));
-                    }
-                }
+                removeSelection(recipeChosen);
+
             } else {
                 if (s.equals("show")) {
                     showRecipes();
@@ -89,6 +85,14 @@ public class Recipe {
     public static void removeRecipe(Recipe recipe){
         RecipeCollection.remove(recipe);
         System.out.println(recipe.name + " removed from RecipeCollection!");
+    }
+    public static void removeSelection(String recipeChosen){
+        for(int i=0; i<RecipeCollection.size();i++){
+            String recipeName = RecipeCollection.get(i).name;
+            if(recipeName.equals(recipeChosen)){
+                RecipeCollection.get(i).removeRecipe(RecipeCollection.get(i));
+            }
+        }
     }
     public static void showRecipes(){
         for (Recipe recipe : RecipeCollection){
