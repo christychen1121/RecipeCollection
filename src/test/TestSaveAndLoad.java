@@ -1,9 +1,10 @@
 package test;
 
 import model.ListOfRecipe;
-import model.Recipe;
+import model.RegularRecipe;
 import org.junit.Before;
 import org.junit.Test;
+import ui.Loadable;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,9 +17,9 @@ import static junit.framework.TestCase.assertTrue;
 
 public class TestSaveAndLoad {
     private ListOfRecipe testrecipeCollection;
-    private Recipe r1 = new Recipe("chia pudding","snacks",5);
-    private Recipe r2 = new Recipe("curry chicken","lunch",30);
-    private Recipe r3 = new Recipe("avocado toast","breakfast",10);
+    private RegularRecipe r1 = new RegularRecipe("chia pudding","snacks",5);
+    private RegularRecipe r2 = new RegularRecipe("curry chicken","lunch",30);
+    private RegularRecipe r3 = new RegularRecipe("avocado toast","breakfast",10);
 
     @Before
     public void setup() {
@@ -30,13 +31,13 @@ public class TestSaveAndLoad {
 
     @Test
     public void testSave() throws IOException, ClassNotFoundException {
-        testrecipeCollection.addRecipe(r1);
-        testrecipeCollection.addRecipe(r2);
-        testrecipeCollection.addRecipe(r3);
+        testrecipeCollection.addToList(r1);
+        testrecipeCollection.addToList(r2);
+        testrecipeCollection.addToList(r3);
         testrecipeCollection.save("testing");
         FileInputStream fis = new FileInputStream("testing");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        List<Recipe> result = (List<Recipe>) ois.readObject();
+        List<RegularRecipe> result = (List<RegularRecipe>) ois.readObject();
         ois.close();
         assertEquals(result.size(),3);
         assertEquals(result.get(0).getName(),"chia pudding");
@@ -48,9 +49,10 @@ public class TestSaveAndLoad {
 
     @Test
     public void testLoad() throws IOException, ClassNotFoundException {
+        Loadable ld = new ListOfRecipe();
+        ld.load("testing");
         testrecipeCollection.load("testing");
         assertTrue(testrecipeCollection.getRecipe().size() == 3);
-        assertTrue(testrecipeCollection.getRecipeNames().contains("curry chicken"));
         assertTrue(testrecipeCollection.getRecipe().get(1).getCookingTime() == 30);
     }
 }
