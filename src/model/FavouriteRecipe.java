@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class FavouriteRecipe extends Recipe {
 
     private Fridge fridge;
-    private ArrayList<String> instruction;
 
     // MODIFIES: this
     // EFFECTS: constructs a new RegularRecipe object setting its name to name
@@ -19,20 +18,15 @@ public class FavouriteRecipe extends Recipe {
         super(name, category, cookingTime);
     }
 
-    // MODIFIES: this
-    // EFFECTS: sets the instruction of favRecipe to the instruction given
-    public void setInstruction(ArrayList instruction) {
-        this.instruction = instruction;
-    }
-
     // EFFECTS: prints out the details about this recipe
     @Override
     public void showDetails() {
-        System.out.println(this.getName() + this.getCategory() + this.getCookingTime());
-        System.out.println(this.getIngredients());
-        System.out.println(instruction);
+        System.out.println(this.getName() + " :(" + this.getCategory() + " " + this.getCookingTime()+ " minutes)");
+        System.out.println("Ingredients: " + this.getIngredients());
+        System.out.println("Instructions:" + this.getInstruction());
     }
 
+    @Override
     // EFFECTS: purchase all the ingredients for this recipe
     public void purchaseIngredients(ArrayList<String> ingredients) {
         System.out.println("Purchased the following ingredients: ");

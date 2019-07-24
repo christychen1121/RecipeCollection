@@ -7,7 +7,7 @@ public class Fridge {
 
     private ArrayList<String> foodItems;
 
-    public void Fridge() {
+    public Fridge() {
         this.foodItems = new ArrayList<>();
     }
 
@@ -19,19 +19,17 @@ public class Fridge {
         this.foodItems = foodItems;
     }
 
-    public void addToList(RegularRecipe recipe) {
-
+    public void addToList(String foodItem) {
+        if(!foodItems.contains(foodItem)) {
+            foodItems.add(foodItem);
+        }
     }
 
-    protected void removeFromList(RegularRecipe regularRecipe) {
-
+    protected void removeFromList(String foodItem) {
+        if(foodItem.contains(foodItem)) {
+            foodItems.remove(foodItem);
+        }
     }
-
-
-    public void removeSelection(String recipeChosen) {
-
-    }
-
 
     public void load(String name) throws IOException, ClassNotFoundException {
 

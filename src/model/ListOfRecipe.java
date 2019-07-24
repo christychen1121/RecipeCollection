@@ -6,6 +6,7 @@ import ui.Saveable;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ListOfRecipe implements Loadable, Saveable {
 
@@ -66,9 +67,23 @@ public class ListOfRecipe implements Loadable, Saveable {
 
     // EFFECTS: prints out the name of each recipe in the list
     public void showList() {
-        for (Recipe recipe : recipes) {
-            System.out.println(recipe.getName());
+        for (int i = 0; i < recipes.size(); i++) {
+            System.out.println(i+1 + "." + recipes.get(i).getName());
         }
+        showDetails();
+
+    }
+    // EFFECTS: print out details of the recipe chosen
+    private void showDetails() {
+        System.out.println("To see details, please print out number of the recipe.");
+        Scanner input = new Scanner(System.in);
+        int recipeChosen = input.nextInt();
+        for (int i = 0; i < recipes.size(); i++) {
+            if (i == recipeChosen-1) {
+                recipes.get(i).showDetails();
+            }
+        }
+
     }
     // MODIFIES: this
     // EFFECTS: sets the regularRecipes in recipeCollection to the list of recipe read from the file
