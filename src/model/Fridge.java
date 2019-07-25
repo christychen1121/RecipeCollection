@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Fridge {
@@ -31,12 +32,17 @@ public class Fridge {
         }
     }
 
-    public void load(String name) throws IOException, ClassNotFoundException {
-
+    public void save() throws IOException, ClassNotFoundException {
+        PrintWriter writer = new PrintWriter("Fridge.txt","UTF-8");
+        for(String foodItem: foodItems) {
+            writer.println(foodItem);
+            writer.close();
+        }
     }
 
 
-    public void save(String name) throws IOException {
+    public void load() throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get("Fridge.txt"));
 
     }
 }

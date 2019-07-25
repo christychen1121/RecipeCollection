@@ -92,6 +92,4 @@ public abstract class  Recipe implements Serializable {
     public ArrayList<String> getInstruction() {
         return this.instruction;
     }
-
-    public abstract void purchaseIngredients(ArrayList<String> ingredients);
 }

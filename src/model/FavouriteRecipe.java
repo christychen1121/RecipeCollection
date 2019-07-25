@@ -26,7 +26,6 @@ public class FavouriteRecipe extends Recipe {
         System.out.println("Instructions:" + this.getInstruction());
     }
 
-    @Override
     // EFFECTS: purchase all the ingredients for this recipe
     public void purchaseIngredients(ArrayList<String> ingredients) {
         System.out.println("Purchased the following ingredients: ");

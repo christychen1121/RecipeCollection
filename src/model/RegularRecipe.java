@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class RegularRecipe extends Recipe {
 
     // MODIFIES: this
@@ -22,9 +20,4 @@ public class RegularRecipe extends Recipe {
         System.out.println(this.getName() + " :(" + this.getCategory() + " " + this.getCookingTime()+ " minutes)");
         System.out.println("Ingredients: " + this.getIngredients());
     }
-
-    @Override
-    public void purchaseIngredients(ArrayList<String> ingredients) {
-    }
-
 }
