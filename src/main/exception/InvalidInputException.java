@@ -1,4 +1,4 @@
-package model.Exceptions;
+package exception;
 
 public abstract class InvalidInputException extends Exception {
 

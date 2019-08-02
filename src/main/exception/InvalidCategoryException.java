@@ -1,4 +1,4 @@
-package model.Exceptions;
+package exception;
 
 public class InvalidCategoryException extends InvalidInputException {
 

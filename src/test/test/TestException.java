@@ -1,6 +1,6 @@
 package test;
 
-import model.Exceptions.InvalidInputException;
+import exception.InvalidInputException;
 import model.Recipe;
 import model.RegularRecipe;
 import org.junit.Before;
@@ -37,7 +37,7 @@ public class TestException {
             fail("I wasn't expecting this line of code.");
 
         } catch (InvalidInputException e) {
-            System.out.println("Great! Exception Caught!");
+            System.out.println("Great! exception Caught!");
         }
     }
 
@@ -49,7 +49,7 @@ public class TestException {
             recipe.setCookingTime(-1);
             fail("I wasn't  expecting this line of code.");
         }  catch (InvalidInputException e) {
-            System.out.println("Great! Exception Caught!");
+            System.out.println("Great! exception Caught!");
         }
     }
 
@@ -61,7 +61,7 @@ public class TestException {
             recipe.setCookingTime(65);
             fail("I wasn't  expecting this line of code.");
         } catch (InvalidInputException e) {
-            System.out.println("Great! Exception Caught!");
+            System.out.println("Great! exception Caught!");
         }
     }
 }
