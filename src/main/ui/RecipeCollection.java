@@ -14,8 +14,8 @@ public class RecipeCollection {
     private static Boolean b = true;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        //recipeCollection.load("recipecollection");
-        //fridge.load("fridge");
+        recipeCollection.load("recipecollection");
+        fridge.load("fridge");
         while (b) {
             printInstruction();
             handleUserInput();
