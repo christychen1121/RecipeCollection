@@ -50,5 +50,6 @@ public class TestSaveAndLoad {
         ld.load("testing");
         testrecipeCollection.load("testing");
         assertTrue(testrecipeCollection.getRecipes().containsKey("curry chicken"));
+        assertTrue(testrecipeCollection.getRecipes().size() == 3);
     }
 }
