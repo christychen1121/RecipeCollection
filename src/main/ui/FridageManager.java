@@ -1,0 +1,69 @@
+package ui;
+
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class FridageManager extends Application {
+
+    public void printFridgeInstruction() {
+        System.out.println("-To Show Food in Fridge,      Enter '[1]'");
+        System.out.println("-To Add Food in Fridge,       Enter '[2]'");
+        System.out.println("-To remove Food from Fridge,  Enter '[3]'");
+        System.out.println("-To quit,                     Enter '[4]'");
+    }
+
+    public void handleFridgeInput() throws IOException {
+        int num = obtainIntInput();
+        switch (num) {
+            case 1: fridge.showFridge();
+                break;
+            case 2: addFoodInFridge();
+                break;
+            case 3: removeFoodFromFridge();
+                break;
+            case 4: recipeCollection.save("recipecollection");
+                fridge.save("fridge");
+                b = false;
+                break;
+            default: System.out.println("Invalid option. Please enter again.");
+        }
+    }
+
+    // MODIFIES: fridge
+    // EFFECTS: adds the selected food item into the fridge
+    private void addFoodInFridge() {
+        System.out.println("Please enter the food items.");
+        String s = obtainStringInput();
+        String[] splits = s.split(",");
+        for (String foodItem: splits) {
+            fridge.addToFridge(foodItem);
+        }
+    }
+
+    // MODIFIES: fridge
+    // EFFECTS: removes the selected food item from the fridge
+    private void removeFoodFromFridge() {
+        System.out.println("Please enter the name of food item to remove.");
+        String foodChosen = obtainStringInput();
+        fridge.removeFromFridge(foodChosen);
+    }
+
+    // EFFECTS: gets user's next string input
+    private String obtainStringInput() {
+        Scanner input = new Scanner(System.in);
+        return input.nextLine();
+    }
+
+    // EFFECTS: gets user's next string input
+    private static int obtainIntInput() {
+        try {
+            Scanner input = new Scanner(System.in);
+            return input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Your input is invalid. Please enter again.");
+            obtainIntInput();
+            return 0;
+        }
+    }
+}
