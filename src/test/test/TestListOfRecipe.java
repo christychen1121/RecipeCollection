@@ -3,18 +3,18 @@ package test;
 import model.ListOfRecipe;
 import model.Recipe;
 import model.RegularRecipe;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class TestListOfRegularRecipe {
+public class TestListOfRecipe {
     ListOfRecipe recipeCollection;
     Recipe r1;
     Recipe r2;
 
-    @Before
+    @BeforeEach
     public void setup() {
         recipeCollection = new ListOfRecipe();
         r1 = new RegularRecipe("r1");

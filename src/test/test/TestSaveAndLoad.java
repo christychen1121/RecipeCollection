@@ -1,8 +1,8 @@
 package test;
 
 import model.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class TestSaveAndLoad {
     private Recipe r2 = new RegularRecipe("curry chicken","lunch",30);
     private Recipe r3 = new RegularRecipe("avocado toast","breakfast",10);
 
-    @Before
+    @BeforeEach
     public void setup() {
         testrecipeCollection = new ListOfRecipe();
         r1.addIngredient(new FoodItem("chia seeds"));

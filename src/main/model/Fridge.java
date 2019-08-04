@@ -8,6 +8,14 @@ public class Fridge implements Loadable,Saveable {
     private ArrayList<FoodItem> ingredients = new ArrayList<>();
     private ArrayList<FoodItem> fridge = new ArrayList<>();
 
+    public ArrayList<FoodItem> getIngredients() {
+        return ingredients;
+    }
+
+    public ArrayList<FoodItem> getFridge() {
+        return ingredients;
+    }
+
     public void addToIngredientList(FoodItem ingredient) {
         if (ingredients.contains(ingredient)) {
             for (FoodItem f: ingredients) {

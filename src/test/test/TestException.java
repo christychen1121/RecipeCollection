@@ -3,15 +3,15 @@ package test;
 import exception.InvalidInputException;
 import model.Recipe;
 import model.RegularRecipe;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static junit.framework.TestCase.fail;
 
 public class TestException {
     Recipe recipe;
 
-    @Before
+    @BeforeEach
     public void setup() {
         recipe = new RegularRecipe("fired rice");
     }
