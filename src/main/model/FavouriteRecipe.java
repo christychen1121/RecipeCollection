@@ -26,24 +26,8 @@ public class FavouriteRecipe extends Recipe {
     }
 
     // EFFECTS: return ingredients of FavouriteRecipe object
-    private ArrayList<String> getInstruction() {
+    public ArrayList<String> getInstruction() {
         return this.instruction;
     }
-
-
-//    // EFFECTS: purchase all the ingredients for this recipe
-//    public void purchaseIngredients(ArrayList<String> ingredients) {
-//        System.out.println("Purchase the following ingredients: ");
-//        for (String ingredient: ingredients) {
-//            if (!inFridgeOrNot(ingredient)) {
-//                System.out.println(ingredient);
-//            }
-//        }
-//    }
-//
-//    // EFFECTS: check to see if the fridge contains the given ingredient
-//    private boolean inFridgeOrNot(String ingredient) {
-//        return (fridge.getFridge().contains(ingredient));
-//    }
 
 }

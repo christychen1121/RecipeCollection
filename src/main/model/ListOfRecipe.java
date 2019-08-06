@@ -17,10 +17,8 @@ public class ListOfRecipe implements Loadable, Saveable {
         return this.recipes;
     }
 
-    // MODIFIES: this
-    // EFFECTS: sets the recipes map
-    private void setRecipes(Map recipes) {
-        this.recipes = recipes;
+    public Recipe getRecipe(String recipe) {
+        return recipes.get(recipe);
     }
 
     // MODIFIES: this
@@ -47,18 +45,13 @@ public class ListOfRecipe implements Loadable, Saveable {
         }
     }
 
-    // EFFECTS: prints out the name of each recipe in the list
-    public void showList() {
-        System.out.println(recipes.keySet());
-    }
-
     // EFFECTS: print out details of the recipe chosen
-    public void showDetails() {
-        System.out.println("To see details, please print out name of the recipe.");
-        Scanner input = new Scanner(System.in);
-        String recipeChosen = input.nextLine();
-        recipes.get(recipeChosen).showDetails();
-    }
+//    public void showDetails(String recipeChosen) {
+////        System.out.println("To see details, please print out name of the recipe.");
+////        Scanner input = new Scanner(System.in);
+////        String recipeChosen = input.nextLine();
+//          recipes.get(recipeChosen).showDetails();
+//    }
 
     // MODIFIES: this
     // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file
@@ -67,7 +60,7 @@ public class ListOfRecipe implements Loadable, Saveable {
         ObjectInputStream ois = new ObjectInputStream(fis);
         HashMap<String,Recipe> result = (HashMap<String,Recipe>) ois.readObject();
         ois.close();
-        setRecipes(result);
+        this.recipes = result;
     }
 
     // MODIFIES: this

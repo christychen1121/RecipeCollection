@@ -46,8 +46,6 @@ public class TestSaveAndLoad {
 
     @Test
     public void testLoad() throws IOException, ClassNotFoundException {
-        Loadable ld = new ListOfRecipe();
-        ld.load("testing");
         testrecipeCollection.load("testing");
         assertTrue(testrecipeCollection.getRecipes().containsKey("curry chicken"));
         assertTrue(testrecipeCollection.getRecipes().size() == 3);
