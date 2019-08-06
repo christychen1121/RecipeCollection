@@ -15,8 +15,8 @@ public class Application {
     protected static Boolean b = true;
 
     public void runable() throws IOException, ClassNotFoundException {
-        //recipeCollection.load("recipecollection");
-        //fridge.load("fridge");
+        recipeCollection.load("recipecollection");
+        fridge.load("fridge");
         while (b) {
             printInstruction();
             handleUserInput();

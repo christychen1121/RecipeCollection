@@ -23,12 +23,11 @@ public class TestFoodItem {
         assertTrue(recipe1.getIngredients().contains(foodItem));
 
         // if the recipe is already in ContainedIn, then it will not be added
-        foodItem.addContainedIn(recipe1.getName());
+        foodItem.addContainedIn(recipe1);
         assertTrue(foodItem.getContainedIn().size() == 1);
 
-        foodItem.addContainedIn(recipe2);
+        foodItem.addContainedIn(recipe2.getName());
         assertTrue(foodItem.getContainedIn().contains(recipe2.getName()));
-        assertTrue(recipe2.getIngredients().contains(foodItem));
         assertTrue(foodItem.getContainedIn().size() == 2);
     }
 
@@ -40,7 +39,6 @@ public class TestFoodItem {
         assertTrue(foodItem.hashCode() == foodItem1.hashCode());
         FoodItem foodItem2 = null;
         assertFalse(foodItem.equals(foodItem2));
-        assertFalse(foodItem.hashCode() == foodItem2.hashCode());
     }
 
     @Test
