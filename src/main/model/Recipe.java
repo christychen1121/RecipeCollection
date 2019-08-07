@@ -89,14 +89,16 @@ public abstract class  Recipe implements Serializable {
     public void showDetails() {
         System.out.println(this.getName() + " :(" + this.getCategory() + " " + this.getCookingTime() + " minutes)");
         System.out.print("Ingredients: ");
-        printIngredients(this.getIngredients());
-    }
-
-    // EFFECTS: prints out each ingredient in the list
-    private void printIngredients(ArrayList<FoodItem> ingredients) {
-        for (FoodItem ingredient: ingredients) {
+        for (FoodItem ingredient: this.ingredients) {
             System.out.print(ingredient.getName() + " ");
+            //printIngredients(this.getIngredients());
         }
+
+//    // EFFECTS: prints out each ingredient in the list
+//    private void printIngredients(ArrayList<FoodItem> ingredients) {
+//        for (FoodItem ingredient: ingredients) {
+//            System.out.print(ingredient.getName() + " ");
+//        }
     }
 
     @Override

@@ -32,7 +32,6 @@ public class TestRecipe {
         assertTrue(f2.getContainedIn().contains(recipe.getName()));
         assertTrue(f3.getContainedIn().contains(recipe.getName()));
 
-
         recipe.addIngredient(f1);
         assertTrue(recipe.getIngredients().size() == 3);
     }

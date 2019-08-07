@@ -1,12 +1,13 @@
 package test;
 
-import model.*;
+import model.FoodItem;
+import model.ListOfRecipe;
+import model.Recipe;
+import model.RegularRecipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.HashMap;
 
 import static junit.framework.TestCase.assertEquals;
@@ -27,27 +28,32 @@ public class TestSaveAndLoad {
     }
 
     @Test
-    public void testSave() throws IOException, ClassNotFoundException {
+    public void testSave() throws IOException {
         testrecipeCollection.addToList(r1);
         testrecipeCollection.addToList(r2);
         testrecipeCollection.addToList(r3);
         testrecipeCollection.save("testing");
-        FileInputStream fis = new FileInputStream("testing");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        HashMap<String,Recipe> result = (HashMap<String, Recipe>) ois.readObject();
-        ois.close();
-        assertEquals(result.size(),3);
-        assertTrue(result.containsKey("chia pudding"));
-        assertEquals(result.get("chia pudding").getCategory(),"snacks");
-        assertEquals(result.get("chia pudding").getCookingTime(),5);
-        assertTrue(result.get("chia pudding").getIngredients().contains(new FoodItem("chia seeds")));
-        assertTrue(result.containsKey("avocado toast"));
+//        FileInputStream fis = new FileInputStream("testing");
+//        ObjectInputStream ois = new ObjectInputStream(fis);
+//        HashMap<String,Recipe> result = (HashMap<String, Recipe>) ois.readObject();
+//        ois.close();
+//        assertEquals(result.size(),3);
+//        assertTrue(result.containsKey("chia pudding"));
+//        assertEquals(result.get("chia pudding").getCategory(),"snacks");
+//        assertEquals(result.get("chia pudding").getCookingTime(),5);
+//        assertTrue(result.get("chia pudding").getIngredients().contains(new FoodItem("chia seeds")));
+//        assertTrue(result.containsKey("avocado toast"));
     }
 
     @Test
     public void testLoad() throws IOException, ClassNotFoundException {
         testrecipeCollection.load("testing");
-        assertTrue(testrecipeCollection.getRecipes().containsKey("curry chicken"));
-        assertTrue(testrecipeCollection.getRecipes().size() == 3);
+        HashMap<String,Recipe> result = (HashMap<String, Recipe>) testrecipeCollection.getRecipes();
+        assertEquals(3,result.size());
+        assertTrue(result.containsKey("chia pudding"));
+        assertEquals(result.get("chia pudding").getCategory(),"snacks");
+        assertEquals(result.get("chia pudding").getCookingTime(),5);
+        assertTrue(result.get("chia pudding").getIngredients().contains(new FoodItem("chia seeds")));
+        assertTrue(result.containsKey("avocado toast"));
     }
 }
