@@ -132,7 +132,9 @@ public class RecipeManager extends Application {
         System.out.println("To see details, please print out name of the recipe.");
         Scanner input = new Scanner(System.in);
         String recipeChosen = input.nextLine();
-        recipeCollection.getRecipe(recipeChosen).showDetails();
+        //recipeCollection.getRecipe(recipeChosen).showDetails();
+        Recipe recipe = (Recipe) recipeCollection.getRecipes().get(recipeChosen);
+        recipe.showDetails();
         //recipeCollection.getRecipes().get(recipeChosen).showDetails();
     }
 

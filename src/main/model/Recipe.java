@@ -91,14 +91,7 @@ public abstract class  Recipe implements Serializable {
         System.out.print("Ingredients: ");
         for (FoodItem ingredient: this.ingredients) {
             System.out.print(ingredient.getName() + " ");
-            //printIngredients(this.getIngredients());
         }
-
-//    // EFFECTS: prints out each ingredient in the list
-//    private void printIngredients(ArrayList<FoodItem> ingredients) {
-//        for (FoodItem ingredient: ingredients) {
-//            System.out.print(ingredient.getName() + " ");
-//        }
     }
 
     @Override

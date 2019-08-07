@@ -31,10 +31,22 @@ public class TestRecipe {
         assertTrue(f1.getContainedIn().contains(recipe.getName()));
         assertTrue(f2.getContainedIn().contains(recipe.getName()));
         assertTrue(f3.getContainedIn().contains(recipe.getName()));
-
         recipe.addIngredient(f1);
         assertTrue(recipe.getIngredients().size() == 3);
     }
+
+    @Test
+    public void testShowDetails() {
+        recipe = new RegularRecipe("meatball spaghetti","main dish",30);
+        FoodItem f1 = new FoodItem("meatball");
+        FoodItem f2 = new FoodItem("tomato");
+        FoodItem f3 = new FoodItem("rosemary");
+        recipe.addIngredient(f1);
+        recipe.addIngredient(f2);
+        recipe.addIngredient(f3);
+        recipe.showDetails();
+    }
+
     @Test
     public void testEquals() throws InvalidCategoryException, InvalidTimeException {
         recipe = new RegularRecipe(" ");

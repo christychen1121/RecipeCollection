@@ -3,7 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/fridge" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/recipecollection" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/testSaveLoad" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testSaveLoad" charset="UTF-16" />
     <file url="file://$PROJECT_DIR$/testing" charset="UTF-8" />
   </component>
 </project>

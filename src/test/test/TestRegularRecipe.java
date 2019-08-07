@@ -9,9 +9,14 @@ public class TestRegularRecipe {
 
 
     @Test
-    public void testRecipe(){
+    public void testRecipe() {
         r1 = new RegularRecipe("fish taco");
         r2 = new RegularRecipe("pork taco","main dish",30);
+    }
+
+    @Test
+    public void testShowDetails() {
+        r1 = new RegularRecipe("fish taco");
         r1.showDetails();
     }
 }

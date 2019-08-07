@@ -17,10 +17,6 @@ public class ListOfRecipe implements Loadable, Saveable {
         return this.recipes;
     }
 
-    public Recipe getRecipe(String recipe) {
-        return recipes.get(recipe);
-    }
-
     // MODIFIES: this
     // EFFECTS: adds the given recipe to the list of recipe
     //          prints a message to notify the user that the recipe is added
@@ -44,14 +40,6 @@ public class ListOfRecipe implements Loadable, Saveable {
             System.out.println(recipeName + " removed from RecipeCollection!");
         }
     }
-
-    // EFFECTS: print out details of the recipe chosen
-//    public void showDetails(String recipeChosen) {
-////        System.out.println("To see details, please print out name of the recipe.");
-////        Scanner input = new Scanner(System.in);
-////        String recipeChosen = input.nextLine();
-//          recipes.get(recipeChosen).showDetails();
-//    }
 
     // MODIFIES: this
     // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file

@@ -98,7 +98,7 @@ public class TestFridge {
 
 
     @Test
-    public void testSave() throws IOException, ClassNotFoundException {
+    public void testSave() throws IOException {
         fridge.addToIngredientList(f1);
         fridge.addToIngredientList(f2);
         fridge.addToFridge("carrot");
@@ -111,6 +111,7 @@ public class TestFridge {
 
     @Test
     public void testLoad() throws IOException, ClassNotFoundException {
+        assertTrue(fridge.getFridge().size() == 0);
         fridge.load("testSaveLoad");
         assertTrue(fridge.getFridge().size() == 1);
         assertTrue(fridge.getIngredients().size() == 2);

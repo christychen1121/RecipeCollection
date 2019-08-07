@@ -36,7 +36,7 @@ public class FridageManager extends Application {
         }
     }
 
-    public void showFridge() {
+    private void showFridge() {
         for (FoodItem foodItem: fridge.getFridge()) {
             System.out.println(foodItem.getName());
         }
