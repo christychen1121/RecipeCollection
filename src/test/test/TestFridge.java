@@ -6,8 +6,6 @@ import model.RegularRecipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestFridge {
@@ -94,29 +92,5 @@ public class TestFridge {
         assertTrue(fridge.getFridge().size() == 1);
         fridge.removeFromFridge("tomato");
         assertTrue(fridge.getFridge().isEmpty());
-    }
-
-
-    @Test
-    public void testSave() throws IOException {
-        fridge.addToIngredientList(f1);
-        fridge.addToIngredientList(f2);
-        fridge.addToFridge("carrot");
-        fridge.save("testSaveLoad");
-//        FileInputStream fis = new FileInputStream("testSaveLoad");
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        Fridge result = (Fridge) ois.readObject();
-//        ois.close();
-    }
-
-    @Test
-    public void testLoad() throws IOException, ClassNotFoundException {
-        assertTrue(fridge.getFridge().size() == 0);
-        fridge.load("testSaveLoad");
-        assertTrue(fridge.getFridge().size() == 1);
-        assertTrue(fridge.getIngredients().size() == 2);
-        assertTrue(fridge.getIngredients().contains(f1));
-        assertTrue(fridge.getIngredients().contains(f2));
-        assertTrue(fridge.getFridge().contains(new FoodItem("carrot")));
     }
 }

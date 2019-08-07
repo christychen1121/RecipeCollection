@@ -35,9 +35,10 @@ public class TestException {
             recipe.setCookingTime(20);
             recipe.setCategory("lunch");
             fail("I wasn't expecting this line of code.");
-
         } catch (InvalidInputException e) {
+            e.printErrorMessage();
             System.out.println("Great! exception Caught!");
+
         }
     }
 
@@ -49,6 +50,7 @@ public class TestException {
             recipe.setCookingTime(-1);
             fail("I wasn't  expecting this line of code.");
         }  catch (InvalidInputException e) {
+            e.printErrorMessage();
             System.out.println("Great! exception Caught!");
         }
     }

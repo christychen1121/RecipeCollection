@@ -5,7 +5,7 @@ import observer.Subject;
 import java.io.*;
 import java.util.*;
 
-public class Fridge extends Subject implements Loadable,Saveable,Serializable {
+public class Fridge extends Subject implements Serializable {
 
     private ArrayList<FoodItem> ingredients = new ArrayList<>();
     private ArrayList<FoodItem> fridge = new ArrayList<>();
@@ -16,6 +16,14 @@ public class Fridge extends Subject implements Loadable,Saveable,Serializable {
 
     public ArrayList<FoodItem> getFridge() {
         return fridge;
+    }
+
+    public void setIngredients(ArrayList<FoodItem> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setFridge(ArrayList<FoodItem> fridge) {
+        this.fridge = fridge;
     }
 
     public void addToIngredientList(FoodItem ingredient) {
@@ -60,21 +68,5 @@ public class Fridge extends Subject implements Loadable,Saveable,Serializable {
             fridge.remove(foodItem);
             System.out.println(s + " has been removed from the fridge!");
         }
-    }
-
-    public void load(String name) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(name);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        Fridge result = (Fridge) ois.readObject();
-        ois.close();
-        this.fridge = result.getFridge();
-        this.ingredients = result.getIngredients();
-    }
-
-    public void save(String name) throws IOException {
-        FileOutputStream fos = new FileOutputStream(name);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(this);
-        oos.close();
     }
 }

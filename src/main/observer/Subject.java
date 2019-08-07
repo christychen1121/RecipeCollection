@@ -8,6 +8,10 @@ import java.util.List;
 public class Subject {
     private List<FridgeObserver> observers = new ArrayList<>();
 
+    public List<FridgeObserver> getObservers() {
+        return observers;
+    }
+
     public void addObserver(FridgeObserver foodItem) {
         if (!observers.contains(foodItem)) {
             observers.add(foodItem);

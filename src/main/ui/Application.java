@@ -8,15 +8,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Application {
-    private static RecipeManager recipeManager = new RecipeManager();
-    private static FridageManager fridageManager = new FridageManager();
+    protected static RecipeManager recipeManager = new RecipeManager();
+    protected static FridageManager fridageManager = new FridageManager();
     protected static Fridge fridge = new Fridge();
     protected static ListOfRecipe recipeCollection = new ListOfRecipe();
     protected static Boolean b = true;
 
     public void runable() throws IOException, ClassNotFoundException {
-        recipeCollection.load("recipecollection");
-        fridge.load("fridge");
+        recipeManager.load("recipecollection");
+        fridageManager.load("fridge");
         while (b) {
             printInstruction();
             handleUserInput();
@@ -43,8 +43,8 @@ public class Application {
                 fridageManager.printFridgeInstruction();
                 fridageManager.handleFridgeInput();
                 break;
-            case 3: recipeCollection.save("recipecollection");
-                fridge.save("fridge");
+            case 3: recipeManager.save("recipecollection");
+                fridageManager.save("fridge");
                 b = false;
                 break;
             default: System.out.println("Invalid option. Please enter again.");

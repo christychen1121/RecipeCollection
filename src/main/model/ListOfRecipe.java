@@ -1,9 +1,9 @@
 package model;
 
-import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ListOfRecipe implements Loadable, Saveable {
+public class ListOfRecipe {
 
     private Map<String,Recipe> recipes;
 
@@ -15,6 +15,10 @@ public class ListOfRecipe implements Loadable, Saveable {
     // EFFECTS: return recipes map
     public  Map getRecipes() {
         return this.recipes;
+    }
+
+    public void setRecipes(Map<String,Recipe> recipes) {
+        this.recipes = recipes;
     }
 
     // MODIFIES: this
@@ -39,24 +43,5 @@ public class ListOfRecipe implements Loadable, Saveable {
             recipes.remove(recipeName);
             System.out.println(recipeName + " removed from RecipeCollection!");
         }
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file
-    public void load(String name) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(name);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        HashMap<String,Recipe> result = (HashMap<String,Recipe>) ois.readObject();
-        ois.close();
-        this.recipes = result;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: save the current list of recipes into the file
-    public void save(String name) throws IOException {
-        FileOutputStream fos = new FileOutputStream(name);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(getRecipes());
-        oos.close();
     }
 }

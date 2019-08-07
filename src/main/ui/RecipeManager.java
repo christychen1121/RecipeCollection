@@ -1,18 +1,16 @@
 package ui;
 
 import exception.InvalidInputException;
-import model.FavouriteRecipe;
-import model.FoodItem;
-import model.Recipe;
-import model.RegularRecipe;
+import model.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-public class RecipeManager extends Application {
+public class RecipeManager extends Application implements Loadable,Saveable {
 
     public void printRecipeInstruction() {
         System.out.println("-To Add a New Recipe,         Enter '[1]'");
@@ -31,8 +29,8 @@ public class RecipeManager extends Application {
             case 3: showList();
                 showDetails();
                 break;
-            case 4: recipeCollection.save("recipecollection");
-                fridge.save("fridge");
+            case 4: save("recipecollection");
+                fridageManager.save("fridge");
                 b = false;
                 break;
             default: System.out.println("Invalid option. Please enter again.");
@@ -136,6 +134,25 @@ public class RecipeManager extends Application {
         Recipe recipe = (Recipe) recipeCollection.getRecipes().get(recipeChosen);
         recipe.showDetails();
         //recipeCollection.getRecipes().get(recipeChosen).showDetails();
+    }
+    
+    // MODIFIES: this
+    // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file
+    public void load(String name) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(name);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        HashMap<String,Recipe> result = (HashMap<String,Recipe>) ois.readObject();
+        ois.close();
+        recipeCollection.setRecipes(result);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: save the current list of recipes into the file
+    public void save(String name) throws IOException {
+        FileOutputStream fos = new FileOutputStream(name);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(recipeCollection.getRecipes());
+        oos.close();
     }
 
     // EFFECTS: gets user's next string input

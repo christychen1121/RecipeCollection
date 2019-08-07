@@ -1,12 +1,15 @@
 package ui;
 
 import model.FoodItem;
+import model.Fridge;
+import model.Loadable;
+import model.Saveable;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class FridageManager extends Application {
+public class FridageManager extends Application implements Loadable, Saveable {
 
     public void printFridgeInstruction() {
         System.out.println("-To Show Food in Fridge,      Enter '[1]'");
@@ -28,8 +31,8 @@ public class FridageManager extends Application {
             case 4:
                 searchIngredient();
                 break;
-            case 5: recipeCollection.save("recipecollection");
-                fridge.save("fridge");
+            case 5: recipeManager.save("recipecollection");
+                save("fridge");
                 b = false;
                 break;
             default: System.out.println("Invalid option. Please enter again.");
@@ -82,6 +85,22 @@ public class FridageManager extends Application {
         readWebPageEx.search(s);
         Parser parser = new Parser();
         parser.read();
+    }
+
+    public void load(String name) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(name);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Fridge result = (Fridge) ois.readObject();
+        ois.close();
+        fridge.setFridge(result.getFridge());
+        fridge.setIngredients(result.getIngredients());
+    }
+
+    public void save(String name) throws IOException {
+        FileOutputStream fos = new FileOutputStream(name);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(fridge);
+        oos.close();
     }
 
     // EFFECTS: gets user's next string input
