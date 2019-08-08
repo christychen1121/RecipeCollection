@@ -135,7 +135,7 @@ public class RecipeManager extends Application implements Loadable,Saveable {
         recipe.showDetails();
         //recipeCollection.getRecipes().get(recipeChosen).showDetails();
     }
-    
+
     // MODIFIES: this
     // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file
     public void load(String name) throws IOException, ClassNotFoundException {
