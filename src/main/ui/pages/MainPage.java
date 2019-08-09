@@ -1,13 +1,11 @@
 package ui.pages;
 
-import javafx.scene.media.AudioClip;
 import ui.Application;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -44,10 +42,10 @@ class MainPage extends Application {
 
         (new MainPage()).display();
 
-        AudioClip ac;
-        ac = new AudioClip(new File(
-                "/Users/christy/Desktop/cs210/project_jxchen17/The Winding Paths.mp3").toURI().toString());
-        ac.play();
+//        AudioClip ac;
+//        ac = new AudioClip(new File(
+//                "/Users/christy/Desktop/cs210/project_jxchen17/The Winding Paths.mp3").toURI().toString());
+//        ac.play();
     }
 
     public void display() {
