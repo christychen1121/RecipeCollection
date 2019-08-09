@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class FavouriteRecipe extends Recipe {
 
-    private ArrayList<String> instruction;
+    private ArrayList<String> instruction = new ArrayList<>();
 
     // MODIFIES: this
     // EFFECTS: constructs a new FavouriteRecipe object setting its name to name
@@ -19,7 +19,6 @@ public class FavouriteRecipe extends Recipe {
     // EFFECTS: prints out the details about this recipe and its instructions
     @Override
     public String showDetails() {
-        //String details = super.showDetails();
         String instructions = "Instructions: ";
         for (String instruction: this.instruction) {
             instructions = instructions + "\n" + instruction;
