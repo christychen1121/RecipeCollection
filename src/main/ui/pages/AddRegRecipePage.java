@@ -13,6 +13,10 @@ import java.io.IOException;
 public class AddRegRecipePage extends RecipeManager {
     private static final int WIDTH = 624;
     private static final int HEIGHT = 480;
+    private static final int LABEL_X = 130;
+    private static final int AREA_X = 220;
+    private static final int LABEL_WIDTH = 100;
+    private static final int LABEL_HEIGHT = 50;
 
     private JFrame frame = new JFrame("Add Recipe Page");
     private Container cp = frame.getContentPane();
@@ -61,20 +65,20 @@ public class AddRegRecipePage extends RecipeManager {
 
     private void setLabelAndText() {
         recipePic.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-        name.setBounds(100,100,100,50);
-        time.setBounds(100,180,100,50);
-        category.setBounds(100,260,100,50);
-        ingredients.setBounds(100,340,100,50);
+        name.setBounds(LABEL_X,80,LABEL_WIDTH,LABEL_HEIGHT);
+        time.setBounds(LABEL_X,130,LABEL_WIDTH,LABEL_HEIGHT);
+        category.setBounds(LABEL_X,180,LABEL_WIDTH,LABEL_HEIGHT);
+        ingredients.setBounds(LABEL_X,230,LABEL_WIDTH,LABEL_HEIGHT);
 
-        nameInput.setBounds(200,100,160,40);
-        timeInput.setBounds(200,180,160,40);
+        nameInput.setBounds(AREA_X,80,160,40);
+        timeInput.setBounds(AREA_X,130,160,40);
         String[] listData = new String[]{"breakfast","main dish","snack"};
         categoryInput = new JComboBox<>(listData);
-        categoryInput.setBounds(200,260,180,50);
-        ingredientInput.setBounds(200,340,250,100);
+        categoryInput.setBounds(AREA_X,180,180,50);
+        ingredientInput.setBounds(AREA_X,230,250,100);
         ingredientInput.setLineWrap(true);
 
-        done.setBounds(250,500,100,50);
+        done.setBounds(250,400,LABEL_WIDTH,LABEL_HEIGHT);
     }
 
     private void setButton() {

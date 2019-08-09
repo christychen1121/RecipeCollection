@@ -6,6 +6,9 @@ import model.RegularRecipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -19,6 +22,18 @@ public class TestListOfRecipe {
         recipeCollection = new ListOfRecipe();
         r1 = new RegularRecipe("r1");
         r2 = new RegularRecipe("r2");
+    }
+
+    @Test
+    public void testSetRecipes() {
+        assertTrue(recipeCollection.getRecipes().isEmpty());
+        Map<String,Recipe> recipeMap = new HashMap<>();
+        recipeMap.put("r1",r1);
+        recipeMap.put("r2",r2);
+        recipeCollection.setRecipes(recipeMap);
+        assertTrue(recipeCollection.getRecipes().containsValue(r1));
+        assertTrue(recipeCollection.getRecipes().containsValue(r2));
+        assertTrue(recipeCollection.getRecipes().size() == 2);
     }
 
     @Test

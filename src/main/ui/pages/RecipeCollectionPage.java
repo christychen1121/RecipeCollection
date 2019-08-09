@@ -62,7 +62,7 @@ public class RecipeCollectionPage extends RecipeManager {
     }
 
     private void setB1() {
-        b1.setBounds(BUTTON_X,150,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b1.setBounds(BUTTON_X,120,BUTTON_WIDTH,BUTTON_HEIGHT);
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,7 +81,7 @@ public class RecipeCollectionPage extends RecipeManager {
     }
 
     private void setB2() {
-        b2.setBounds(BUTTON_X,230,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b2.setBounds(BUTTON_X,180,BUTTON_WIDTH,BUTTON_HEIGHT);
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,7 +95,7 @@ public class RecipeCollectionPage extends RecipeManager {
     }
 
     private void setB3() {
-        b3.setBounds(BUTTON_X,310,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b3.setBounds(BUTTON_X,240,BUTTON_WIDTH,BUTTON_HEIGHT);
         b3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,7 +106,7 @@ public class RecipeCollectionPage extends RecipeManager {
     }
 
     private void setB4() {
-        b4.setBounds(BUTTON_X,390,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b4.setBounds(BUTTON_X,300,BUTTON_WIDTH,BUTTON_HEIGHT);
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

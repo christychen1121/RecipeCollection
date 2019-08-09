@@ -58,11 +58,11 @@ public class FridgePage extends FridageManager {
     }
 
     private void setButton() {
-        b1.setBounds(BUTTON_X,150,BUTTON_WIDTH,BUTTON_HEIGHT);
-        b2.setBounds(BUTTON_X,220,BUTTON_WIDTH,BUTTON_HEIGHT);
-        b3.setBounds(BUTTON_X,290,BUTTON_WIDTH,BUTTON_HEIGHT);
-        b4.setBounds(BUTTON_X,360,BUTTON_WIDTH,BUTTON_HEIGHT);
-        b5.setBounds(BUTTON_X,430,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b1.setBounds(BUTTON_X,120,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b2.setBounds(BUTTON_X,180,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b3.setBounds(BUTTON_X,240,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b4.setBounds(BUTTON_X,300,BUTTON_WIDTH,BUTTON_HEIGHT);
+        b5.setBounds(BUTTON_X,360,BUTTON_WIDTH,BUTTON_HEIGHT);
         setB1();
         setB2();
         setB3();

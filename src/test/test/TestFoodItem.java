@@ -38,6 +38,8 @@ public class TestFoodItem {
         assertTrue(foodItem.equals(foodItem1));
         assertTrue(foodItem.hashCode() == foodItem1.hashCode());
         FoodItem foodItem2 = null;
+        Recipe recipe = new RegularRecipe("spaghetti");
+        assertFalse(foodItem.equals(recipe));
         assertFalse(foodItem.equals(foodItem2));
     }
 
@@ -46,6 +48,7 @@ public class TestFoodItem {
         foodItem = new FoodItem("mushroom");
         FoodItem foodItem1 = new FoodItem("mushroom");
         foodItem1.addContainedIn("creamy mushroom soup");
+        assertTrue(foodItem.equals(foodItem1));
         foodItem.update(foodItem1);
         assertTrue(foodItem.getContainedIn().contains("creamy mushroom soup"));
     }

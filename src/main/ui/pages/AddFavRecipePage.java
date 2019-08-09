@@ -11,8 +11,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class AddFavRecipePage extends RecipeManager {
-    public static final int WIDTH = 624;
-    public static final int HEIGHT = 480;
+    private static final int WIDTH = 624;
+    private static final int HEIGHT = 480;
+    private static final int LABEL_X = 150;
+    private static final int AREA_X = 250;
+    private static final int LABEL_WIDTH = 100;
+    private static final int LABEL_HEIGHT = 50;
 
     private JFrame frame = new JFrame("Add Recipe Page");
     private Container cp = frame.getContentPane();
@@ -66,22 +70,22 @@ public class AddFavRecipePage extends RecipeManager {
 
     private void setLabelAndText() {
         recipePic.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-        name.setBounds(100,80,100,50);
-        time.setBounds(100,130,100,50);
-        category.setBounds(100,180,100,50);
-        ingredients.setBounds(100,230,100,50);
-        instructions.setBounds(100,320,100,50);
+        name.setBounds(LABEL_X,70,LABEL_WIDTH,LABEL_HEIGHT);
+        time.setBounds(LABEL_X,120,LABEL_WIDTH,LABEL_HEIGHT);
+        category.setBounds(LABEL_X,170,LABEL_WIDTH,LABEL_HEIGHT);
+        ingredients.setBounds(LABEL_X,220,LABEL_WIDTH,LABEL_HEIGHT);
+        instructions.setBounds(LABEL_X,290,LABEL_WIDTH,LABEL_HEIGHT);
 
-        nameInput.setBounds(200,80,160,40);
-        timeInput.setBounds(200,130,160,40);
+        nameInput.setBounds(AREA_X,80,160,40);
+        timeInput.setBounds(AREA_X,130,160,40);
         String[] listData = new String[]{"breakfast","main dish","snack"};
         categoryInput = new JComboBox<>(listData);
-        categoryInput.setBounds(200,180,180,50);
-        ingredientInput.setBounds(200,230,250,60);
+        categoryInput.setBounds(AREA_X,180,180,50);
+        ingredientInput.setBounds(AREA_X,230,250,50);
         ingredientInput.setLineWrap(true);
-        instructionInput.setBounds(200,320,300,150);
+        instructionInput.setBounds(AREA_X,300,300,100);
         instructionInput.setLineWrap(true);
-        done.setBounds(250,500,100,50);
+        done.setBounds(250,400,LABEL_WIDTH,LABEL_HEIGHT);
     }
 
     private void setButton() {

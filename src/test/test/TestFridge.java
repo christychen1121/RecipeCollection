@@ -6,6 +6,8 @@ import model.RegularRecipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestFridge {
@@ -23,6 +25,34 @@ public class TestFridge {
         f1.addContainedIn(new RegularRecipe("curry chicken"));
         f2.addContainedIn(new RegularRecipe("strawberry cheesecake"));
         f3.addContainedIn(new RegularRecipe("beef udon"));
+    }
+
+    @Test
+    public void testSetIngredients() {
+        assertTrue(fridge.getIngredients().isEmpty());
+        ArrayList<FoodItem> items = new ArrayList<>();
+        items.add(f1);
+        items.add(f2);
+        items.add(f3);
+        fridge.setIngredients(items);
+        assertTrue(fridge.getIngredients().contains(f1));
+        assertTrue(fridge.getIngredients().contains(f2));
+        assertTrue(fridge.getIngredients().contains(f3));
+        assertTrue(fridge.getIngredients().size() == 3);
+    }
+
+    @Test
+    public void testSetFridge() {
+        assertTrue(fridge.getFridge().isEmpty());
+        ArrayList<FoodItem> items = new ArrayList<>();
+        items.add(f1);
+        items.add(f2);
+        items.add(f3);
+        fridge.setFridge(items);
+        assertTrue(fridge.getFridge().contains(f1));
+        assertTrue(fridge.getFridge().contains(f2));
+        assertTrue(fridge.getFridge().contains(f3));
+        assertTrue(fridge.getFridge().size() == 3);
     }
 
     @Test
@@ -78,6 +108,7 @@ public class TestFridge {
         // when fridge does't contain the food item,
         // yet ingredients list contains it
         fridge.addToFridge("carrot");
+        assertTrue(fridge.getIngredients().get(0).equals(new FoodItem("carrot")));
         assertTrue(fridge.getFridge().contains(f1));
         assertTrue(fridge.getFridge().size() == 1);
     }
@@ -87,6 +118,7 @@ public class TestFridge {
         assertTrue(fridge.getFridge().isEmpty());
         fridge.addToFridge("carrot");
         fridge.addToFridge("tomato");
+        assertTrue(fridge.getFridge().contains(new FoodItem("carrot")));
         fridge.removeFromFridge("carrot");
         assertFalse(fridge.getFridge().contains(new FoodItem("carrot")));
         assertTrue(fridge.getFridge().size() == 1);

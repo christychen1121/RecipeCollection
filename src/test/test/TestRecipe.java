@@ -1,7 +1,5 @@
 package test;
 
-import exception.InvalidCategoryException;
-import exception.InvalidTimeException;
 import model.FoodItem;
 import model.Recipe;
 import model.RegularRecipe;
@@ -48,7 +46,7 @@ public class TestRecipe {
     }
 
     @Test
-    public void testEquals() throws InvalidCategoryException, InvalidTimeException {
+    public void testEquals() {
         recipe = new RegularRecipe("meatball spaghetti","main dish",20);
         Recipe recipe1 = new RegularRecipe("meatball spaghetti");
         assertTrue(recipe.equals(recipe1));

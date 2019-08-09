@@ -19,7 +19,7 @@ public class TestFavouriteRecipe {
 
     @Test
     public void testInstruction() {
-        recipe = new FavouriteRecipe("pork taco");
+        recipe = new FavouriteRecipe("pork taco","main dish",30);
         ArrayList<String> instuctions = new ArrayList<>();
         instuctions.add("1.Get Taco Wraps.");
         instuctions.add("2.Add Pork Onto the Wrap.");
