@@ -49,10 +49,7 @@ public class TestRecipe {
 
     @Test
     public void testEquals() throws InvalidCategoryException, InvalidTimeException {
-        recipe = new RegularRecipe(" ");
-        recipe.setName("meatball spaghetti");
-        recipe.setCategory("main dish");
-        recipe.setCookingTime(20);
+        recipe = new RegularRecipe("meatball spaghetti","main dish",20);
         Recipe recipe1 = new RegularRecipe("meatball spaghetti");
         assertTrue(recipe.equals(recipe1));
         Recipe recipe2 = null;

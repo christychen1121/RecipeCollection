@@ -12,11 +12,20 @@ public class FavouriteRecipe extends Recipe {
         super(name);
     }
 
+    public FavouriteRecipe(String name, String category, int time) {
+        super(name,category,time);
+    }
+
     // EFFECTS: prints out the details about this recipe and its instructions
     @Override
-    public void showDetails() {
-        super.showDetails();
-        System.out.println("Instructions:" + this.getInstruction());
+    public String showDetails() {
+        //String details = super.showDetails();
+        String instructions = "Instructions: ";
+        for (String instruction: this.instruction) {
+            instructions = instructions + "\n" + instruction;
+        }
+        String string = super.showDetails() + "\n" + instructions;
+        return string;
     }
 
     // MODIFIES: this

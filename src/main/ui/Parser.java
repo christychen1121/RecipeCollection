@@ -6,21 +6,24 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Parser {
-    public void read() throws FileNotFoundException {
-
+    public String read() throws FileNotFoundException {
+        String output = "";
         try {
             JsonParser parse = new JsonParser();
             JsonObject object = (JsonObject) parse.parse(new FileReader("JSon"));
 
             JsonArray result = object.get("meals").getAsJsonArray();
-            System.out.println("Related Recipes: ");
+            String list = "";
             for (int i = 0; i < result.size();i++) {
-                System.out.println("---------------------");
                 JsonObject subObject = result.get(i).getAsJsonObject();
-                System.out.println((i + 1) + ". " + subObject.get("strMeal").getAsString());
+                list = list + "\n" + "---------------------" + "\n"
+                        + (i + 1) + ". " + subObject.get("strMeal").getAsString();
             }
+            output = "Related Recipes: " + list;
+
         } catch (JsonIOException e) {
             e.printStackTrace();
         }
+        return output;
     }
 }

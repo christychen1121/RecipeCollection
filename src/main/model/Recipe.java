@@ -1,8 +1,5 @@
 package model;
 
-import exception.InvalidCategoryException;
-import exception.InvalidTimeException;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -33,42 +30,14 @@ public abstract class  Recipe implements Serializable {
         return this.name;
     }
 
-    // MODIFIES: this
-    // EFFECTS: change the name of Recipe to the name given
-    public void setName(String name) {
-        this.name = name;
-    }
-
     // EFFECTS: return category of Recipe object
     public String getCategory() {
         return this.category;
     }
 
-    // MODIFIES: this
-    // EFFECTS: change the category of Recipe to the category given if it equals to "breakfast"
-    //          or "main dish" or "snack", otw throw an InvalidCategoryException
-    public void setCategory(String category) throws InvalidCategoryException {
-        if ((category.equals("breakfast") || (category.equals("main dish"))) || (category.equals("snack"))) {
-            this.category = category;
-        } else {
-            throw new InvalidCategoryException();
-        }
-    }
-
     // EFFECTS: return cookingTime of Recipe object
     public int getCookingTime() {
         return this.cookingTime;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: set the cookingTime of Recipe to the given time
-    //          if the time given is within the range of 0 and 60 mins
-    public void setCookingTime(int time) throws InvalidTimeException {
-        if ((time < 60) && (time > 0)) {
-            this.cookingTime = time;
-        } else {
-            throw new InvalidTimeException();
-        }
     }
 
     // EFFECTS: return ingredients of Recipe object
@@ -86,12 +55,14 @@ public abstract class  Recipe implements Serializable {
     }
 
     // EFFECTS: prints out the name, category, cooking time and ingredients of the recipe
-    public void showDetails() {
-        System.out.println(this.getName() + " :(" + this.getCategory() + " " + this.getCookingTime() + " minutes)");
-        System.out.print("Ingredients: ");
+    public String showDetails() {
+        String list = "Ingredients: ";
         for (FoodItem ingredient: this.ingredients) {
-            System.out.print(ingredient.getName() + " ");
+            list = list + ingredient.getName() + ", ";
         }
+        String details = this.getName() + " :(" + this.getCategory() + " " + this.getCookingTime() + " minutes)"
+                + "\n" + list;
+        return details;
     }
 
     @Override

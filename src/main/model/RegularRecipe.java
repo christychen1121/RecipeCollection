@@ -16,8 +16,8 @@ public class RegularRecipe extends Recipe {
 
     // EFFECTS: prints out the details about this recipe
     @Override
-    public void showDetails() {
-        super.showDetails();
+    public String showDetails() {
+        return super.showDetails();
     }
 
 }
