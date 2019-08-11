@@ -1,13 +1,16 @@
 package ui.pages;
 
+import javafx.scene.media.AudioClip;
 import ui.Application;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 
 class MainPage extends Application {
@@ -25,12 +28,13 @@ class MainPage extends Application {
     private JButton b2 = new JButton("2. Go To Fridge");
     private JButton b3 = new JButton("3. Quit");
     private JLabel greeting = new JLabel("Hello! \n What Would You Like To Do?");
-    private ImageIcon img = new ImageIcon(getClass().getResource("recipeBookImg.jpg"));
+    private ImageIcon img = new ImageIcon(
+            "/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
 
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         try {
             recipeManager.load("recipecollection");
             fridageManager.load("fridge");
@@ -42,10 +46,9 @@ class MainPage extends Application {
 
         (new MainPage()).display();
 
-//        AudioClip ac;
-//        ac = new AudioClip(new File(
-//                "/Users/christy/Desktop/cs210/project_jxchen17/The Winding Paths.mp3").toURI().toString());
-//        ac.play();
+        AudioClip audioClip = new AudioClip(new File(
+                "/Users/christy/Desktop/cs210/project_jxchen17/data/The Winding Paths.mp3").toURI().toString());
+        audioClip.play();
     }
 
     public void display() {

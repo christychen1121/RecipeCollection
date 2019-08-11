@@ -20,7 +20,7 @@ public class ShowFridgePage extends FridageManager {
     private JFrame frame = new JFrame("Food In Fridge");
     private Container container = frame.getContentPane();
     private JButton back = new JButton("Back");
-    private ImageIcon img = new ImageIcon(getClass().getResource("recipeBookImg.jpg"));
+    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
     public void display() {
