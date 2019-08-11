@@ -1,12 +1,10 @@
 package model;
 
-import observer.FridgeObserver;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class FoodItem implements FridgeObserver,Serializable {
+public class FoodItem implements Serializable {
 
     private String name;
     private ArrayList<String> containedIn;
@@ -22,6 +20,10 @@ public class FoodItem implements FridgeObserver,Serializable {
 
     public ArrayList<String> getContainedIn() {
         return containedIn;
+    }
+
+    public void setContainedIn(ArrayList<String> containedIn) {
+        this.containedIn = containedIn;
     }
 
     public void addContainedIn(String recipeName) {
@@ -52,11 +54,4 @@ public class FoodItem implements FridgeObserver,Serializable {
         return Objects.hash(name);
     }
 
-    @Override
-    public void update(FoodItem foodItem) {
-        if (this.equals(foodItem)) {
-            this.containedIn = foodItem.getContainedIn();
-            System.out.println(this.name + " has been updated!");
-        }
-    }
 }

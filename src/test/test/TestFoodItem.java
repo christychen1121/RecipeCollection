@@ -5,6 +5,8 @@ import model.Recipe;
 import model.RegularRecipe;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,10 +33,25 @@ public class TestFoodItem {
         assertTrue(foodItem.getContainedIn().size() == 2);
     }
 
+
+    @Test
+    public  void testSetContainedIn() {
+        foodItem = new FoodItem("potato");
+        assertTrue(foodItem.getContainedIn().isEmpty());
+        ArrayList<String> containedIn = new ArrayList<>();
+        containedIn.add("curry chicken");
+        containedIn.add("french fries");
+        foodItem.setContainedIn(containedIn);
+        assertTrue(foodItem.getContainedIn().size() == 2);
+        assertTrue(foodItem.getContainedIn().contains("curry chicken"));
+        assertTrue(foodItem.getContainedIn().contains("french fries"));
+    }
+
     @Test
     public void testEqualsAndHashCode() {
         foodItem = new FoodItem("tomato");
         FoodItem foodItem1 = new FoodItem("tomato");
+        assertTrue(foodItem1.equals(foodItem1));
         assertTrue(foodItem.equals(foodItem1));
         assertTrue(foodItem.hashCode() == foodItem1.hashCode());
         FoodItem foodItem2 = null;
@@ -42,15 +59,4 @@ public class TestFoodItem {
         assertFalse(foodItem.equals(recipe));
         assertFalse(foodItem.equals(foodItem2));
     }
-
-    @Test
-    public void testUpdate() {
-        foodItem = new FoodItem("mushroom");
-        FoodItem foodItem1 = new FoodItem("mushroom");
-        foodItem1.addContainedIn("creamy mushroom soup");
-        assertTrue(foodItem.equals(foodItem1));
-        foodItem.update(foodItem1);
-        assertTrue(foodItem.getContainedIn().contains("creamy mushroom soup"));
-    }
-
 }

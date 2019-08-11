@@ -49,6 +49,7 @@ public class TestRecipe {
     public void testEquals() {
         recipe = new RegularRecipe("meatball spaghetti","main dish",20);
         Recipe recipe1 = new RegularRecipe("meatball spaghetti");
+        assertTrue(recipe.equals(recipe));
         assertTrue(recipe.equals(recipe1));
         Recipe recipe2 = null;
         assertFalse(recipe.equals(recipe2));

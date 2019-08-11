@@ -114,6 +114,14 @@ public class TestFridge {
     }
 
     @Test
+    public void testNotify() {
+        fridge.addToFridge("carrot");
+        fridge.addToFridge("strawberries");
+        assertTrue(fridge.getFridge().get(0).getContainedIn().isEmpty());
+        fridge.notify(f1);
+        assertTrue(fridge.getFridge().get(0).getContainedIn().contains("curry chicken"));
+    }
+    @Test
     public void testRemoveFromFrdige() {
         assertTrue(fridge.getFridge().isEmpty());
         fridge.addToFridge("carrot");

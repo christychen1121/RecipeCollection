@@ -1,11 +1,9 @@
 package model;
 
-import observer.Subject;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-import java.io.*;
-import java.util.*;
-
-public class Fridge extends Subject implements Serializable {
+public class Fridge implements Serializable {
 
     private ArrayList<FoodItem> ingredients = new ArrayList<>();
     private ArrayList<FoodItem> fridge = new ArrayList<>();
@@ -31,11 +29,21 @@ public class Fridge extends Subject implements Serializable {
             for (FoodItem f: ingredients) {
                 if (f.equals(ingredient)) {
                     f.addContainedIn(ingredient.getContainedIn().get(0));
-                    notifyObservers(f);
+                    notify(f);
                 }
             }
         } else {
             ingredients.add(ingredient);
+            notify(ingredient);
+        }
+    }
+
+    public void notify(FoodItem foodItem) {
+        for (FoodItem item: fridge) {
+            if (item.equals(foodItem)) {
+                item.setContainedIn(foodItem.getContainedIn());
+                System.out.println(item.getName() + " has been updated!");
+            }
         }
     }
 
@@ -50,13 +58,11 @@ public class Fridge extends Subject implements Serializable {
             for (FoodItem ingredient: ingredients) {
                 if (ingredient.equals(foodItem)) {
                     fridge.add(ingredient);
-                    addObserver(ingredient);
                     System.out.println(s + " has been added to the fridge!");
                 }
             }
         } else {
             fridge.add(foodItem);
-            addObserver(foodItem);
             System.out.println(s + " has been added to the fridge!");
         }
 
