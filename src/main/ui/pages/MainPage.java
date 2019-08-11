@@ -33,14 +33,14 @@ class MainPage extends Application {
 
 
     public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-        try {
-            recipeManager.load("recipecollection");
-            fridageManager.load("fridge");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            recipeManager.load("recipecollection");
+//            fridageManager.load("fridge");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
 
         (new MainPage()).display();
 

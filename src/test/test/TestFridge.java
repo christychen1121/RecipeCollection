@@ -87,7 +87,7 @@ public class TestFridge {
     public void testAddToFridge() {
         assertTrue(fridge.getFridge().isEmpty());
 
-        // when fridge and ingredients list don't contain the food item
+        // when fridge and ingredients list doesn't contain the food item
         fridge.addToFridge("potato");
         fridge.addToFridge("tomato");
         assertEquals("potato",fridge.getFridge().get(0).getName());
@@ -104,11 +104,14 @@ public class TestFridge {
     public void testAddToFridge2() {
         assertTrue(fridge.getFridge().isEmpty());
         fridge.addToIngredientList(f1);
+        fridge.addToIngredientList(f2);
 
         // when fridge does't contain the food item,
         // yet ingredients list contains it
         fridge.addToFridge("carrot");
         assertTrue(fridge.getIngredients().get(0).equals(new FoodItem("carrot")));
+        assertFalse(fridge.getIngredients().get(1).equals(new FoodItem("carrot")));
+        assertFalse(fridge.getFridge().contains(f2));
         assertTrue(fridge.getFridge().contains(f1));
         assertTrue(fridge.getFridge().size() == 1);
     }
@@ -125,12 +128,13 @@ public class TestFridge {
     public void testRemoveFromFrdige() {
         assertTrue(fridge.getFridge().isEmpty());
         fridge.addToFridge("carrot");
-        fridge.addToFridge("tomato");
+        fridge.addToFridge("mushroom");
         assertTrue(fridge.getFridge().contains(new FoodItem("carrot")));
         fridge.removeFromFridge("carrot");
         assertFalse(fridge.getFridge().contains(new FoodItem("carrot")));
         assertTrue(fridge.getFridge().size() == 1);
         fridge.removeFromFridge("tomato");
-        assertTrue(fridge.getFridge().isEmpty());
+        assertTrue(fridge.getFridge().size() == 1);
+
     }
 }

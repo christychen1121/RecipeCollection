@@ -20,9 +20,9 @@ public class FavouriteRecipe extends Recipe {
     @Override
     public String showDetails() {
         String instructions = "Instructions: ";
-        for (String instruction: this.instruction) {
-            instructions = instructions + "\n" + instruction;
-        }
+//        for (String instruction: this.instruction) {
+//            instructions = instructions + "\n" + instruction;
+//        }
         String string = super.showDetails() + "\n" + instructions;
         return string;
     }
