@@ -1,6 +1,5 @@
 package ui.pages;
 
-import javafx.scene.media.AudioClip;
 import ui.Application;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -9,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 
 
@@ -46,9 +44,9 @@ class MainPage extends Application {
 
         (new MainPage()).display();
 
-        AudioClip audioClip = new AudioClip(new File(
-                "/Users/christy/Desktop/cs210/project_jxchen17/data/The Winding Paths.mp3").toURI().toString());
-        audioClip.play();
+//        AudioClip audioClip = new AudioClip(new File(
+//                "/Users/christy/Desktop/cs210/project_jxchen17/data/The Winding Paths.mp3").toURI().toString());
+//        audioClip.play();
     }
 
     public void display() {
