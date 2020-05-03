@@ -3,7 +3,7 @@
 Recipe Collection Application is a simple application that can be operated on both Windows and Mac OS, allowing users to manage their recipes with its clean, simple and user-friendly interface. 
 
 This recipe collection application is my first personal programming project that was completed on my own. 
-Since I am quite into cooking and healthy eating, I have a lot of recipes that are either created by myself or learned online, and I like to make meal plans at the beginning of the week and then go grocery shopping accoringly. That's my initiative to create such an application to help me organize my recipes and keep track of them. 
+Since I am quite into cooking and healthy eating, I have a lot of recipes that are either created by myself or learned online, and I like to make meal plans at the beginning of the week and then go grocery shopping accoringly. That's my motive in creating such an application to help me organize my recipes and better keep track of them. 
 
 KEY FEATURES:
 - Allows users to add, remove, and see the recipes in a quick and easy way
