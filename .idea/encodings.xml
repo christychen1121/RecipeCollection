@@ -4,7 +4,7 @@
     <file url="file://$PROJECT_DIR$/data/fridge" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/data/recipecollection" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/data/testSaveLoad" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/data/testing" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/testing" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/fridge" charset="UTF-16" />
   </component>
 </project>

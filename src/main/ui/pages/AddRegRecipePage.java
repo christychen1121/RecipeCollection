@@ -20,7 +20,7 @@ public class AddRegRecipePage extends RecipeManager {
 
     private JFrame frame = new JFrame("Add Recipe Page");
     private Container cp = frame.getContentPane();
-    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
     private JLabel name = new JLabel("Name: ");
@@ -92,7 +92,7 @@ public class AddRegRecipePage extends RecipeManager {
                 recipeCollection.addToList(regularRecipe);
                 JOptionPane.showMessageDialog(null,regularRecipe.getName() + " has been added!");
                 try {
-                    recipeManager.save("recipecollection");
+                    recipeManager.save("Recipe");
                     new MainPage().display();
                 } catch (IOException e1) {
                     e1.printStackTrace();

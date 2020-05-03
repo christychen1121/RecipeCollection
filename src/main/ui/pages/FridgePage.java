@@ -20,7 +20,7 @@ public class FridgePage extends FridageManager {
 
     private JFrame frame = new JFrame("Fridge");
     private Container cp = frame.getContentPane();
-    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
     private JLabel greeting = new JLabel("Hello! \n What Would You Like To Do?");
     private JButton b1 = new JButton("1. To Show Food in Fridge");
@@ -131,7 +131,7 @@ public class FridgePage extends FridageManager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    recipeManager.save("recipecollection");
+                    recipeManager.save("Recipe");
                     save("fridge");
                     new MainPage().display();
                     frame.dispose();

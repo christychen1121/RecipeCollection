@@ -20,7 +20,7 @@ public class AddFavRecipePage extends RecipeManager {
 
     private JFrame frame = new JFrame("Add Recipe Page");
     private Container cp = frame.getContentPane();
-    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
     private JLabel name = new JLabel("Name: ");

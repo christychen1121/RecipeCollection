@@ -27,7 +27,6 @@ public class RecipeManager extends Application implements Loadable,Saveable {
         ((FavouriteRecipe)recipe).setInstruction(instructions);
     }
 
-    // MODIFIES: this
     // EFFECTS: sets the recipes in recipeCollection to the list of recipe read from the file
     public void load(String name) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(name);
@@ -37,7 +36,6 @@ public class RecipeManager extends Application implements Loadable,Saveable {
         recipeCollection.setRecipes(result);
     }
 
-    // MODIFIES: this
     // EFFECTS: save the current list of recipes into the file
     public void save(String name) throws IOException {
         FileOutputStream fos = new FileOutputStream(name);

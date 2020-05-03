@@ -24,7 +24,7 @@ public class RecipeCollectionPage extends RecipeManager {
     private JButton b2 = new JButton("2. To Remove A Recipe");
     private JButton b3 = new JButton("3. To Show All Recipes");
     private JButton b4 = new JButton("4. Quit");
-    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
     public void display()  {
@@ -111,7 +111,8 @@ public class RecipeCollectionPage extends RecipeManager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    save("recipecollection");
+                    save("Recipe");
+                    //save("recipecollection");
                     fridageManager.save("fridge");
                     frame.dispose();
                     new MainPage().display();

@@ -11,13 +11,11 @@ public abstract class  Recipe implements Serializable {
     private int cookingTime; // in minutes
     private ArrayList<FoodItem> ingredients = new ArrayList<>();
 
-    // MODIFIES: this
     // EFFECTS: constructs a new Recipe object setting its name to name
     Recipe(String name) {
         this.name = name;
     }
 
-    // MODIFIES: this
     // EFFECTS: construct a new Recipe object and sets the fields to the given values
     Recipe(String name, String category, int cookingTime) {
         this.name = name;
@@ -45,7 +43,6 @@ public abstract class  Recipe implements Serializable {
         return this.ingredients;
     }
 
-    // MODIFIES: this
     // EFFECTS: add the given ingredient to the list of ingredient if it is not already there
     public void addIngredient(FoodItem ingredient) {
         if (!ingredients.contains(ingredient)) {

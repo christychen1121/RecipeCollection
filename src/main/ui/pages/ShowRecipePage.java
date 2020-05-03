@@ -22,7 +22,7 @@ public class ShowRecipePage extends RecipeManager {
     private Container cp = frame.getContentPane();
     private JLabel heading = new JLabel("All Recipes:");
     private JButton back = new JButton("Back");
-    private ImageIcon img = new ImageIcon("/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
     public void display() {

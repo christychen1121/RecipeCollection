@@ -6,7 +6,6 @@ public class FavouriteRecipe extends Recipe {
 
     private ArrayList<String> instruction = new ArrayList<>();
 
-    // MODIFIES: this
     // EFFECTS: constructs a new FavouriteRecipe object setting its name to name
     public FavouriteRecipe(String name) {
         super(name);
@@ -20,14 +19,10 @@ public class FavouriteRecipe extends Recipe {
     @Override
     public String showDetails() {
         String instructions = "Instructions: ";
-//        for (String instruction: this.instruction) {
-//            instructions = instructions + "\n" + instruction;
-//        }
         String string = super.showDetails() + "\n" + instructions;
         return string;
     }
 
-    // MODIFIES: this
     // EFFECTS: change the instruction of FavouriteRecipe to the list given
     public void setInstruction(ArrayList<String> instruction) {
         this.instruction = instruction;
@@ -37,5 +32,4 @@ public class FavouriteRecipe extends Recipe {
     public ArrayList<String> getInstruction() {
         return this.instruction;
     }
-
 }

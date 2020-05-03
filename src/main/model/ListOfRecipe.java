@@ -21,7 +21,6 @@ public class ListOfRecipe {
         this.recipes = recipes;
     }
 
-    // MODIFIES: this
     // EFFECTS: adds the given recipe to the list of recipe
     //          prints a message to notify the user that the recipe is added
     public void addToList(Recipe recipe) {
@@ -35,7 +34,6 @@ public class ListOfRecipe {
         return (recipes.get(recipeName) != null);
     }
 
-    // MODIFIES: this
     // EFFECTS: removes the recipe from the list of recipe
     //          prints a message to notify the user that the regularRecipe is removed
     public void removeFromList(String recipeName) {

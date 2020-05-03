@@ -1,13 +1,13 @@
 package ui.pages;
 
+import javafx.scene.media.AudioClip;
 import ui.Application;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -26,27 +26,24 @@ class MainPage extends Application {
     private JButton b2 = new JButton("2. Go To Fridge");
     private JButton b3 = new JButton("3. Quit");
     private JLabel greeting = new JLabel("Hello! \n What Would You Like To Do?");
-    private ImageIcon img = new ImageIcon(
-            "/Users/christy/Desktop/cs210/project_jxchen17/data/recipeBookImg.jpg");
+
+    private ImageIcon img = new ImageIcon("src/main/ui/pages/recipeBookImg.jpg");
     private JLabel recipePic = new JLabel(img);
 
 
-
-    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-//        try {
-//            recipeManager.load("recipecollection");
-//            fridageManager.load("fridge");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
+    public static void main(String[] args) {
+        try {
+            recipeManager.load("Recipe");
+            fridageManager.load("fridge");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         (new MainPage()).display();
-
-//        AudioClip audioClip = new AudioClip(new File(
-//                "/Users/christy/Desktop/cs210/project_jxchen17/data/The Winding Paths.mp3").toURI().toString());
-//        audioClip.play();
+        AudioClip audioClip = new AudioClip(new File(
+                "data/The Winding Paths.mp3").toURI().toString());
+        audioClip.play();
     }
 
     public void display() {
@@ -114,7 +111,7 @@ class MainPage extends Application {
             public void actionPerformed(ActionEvent e) {
                 try {
                     fridageManager.save("fridge");
-                    recipeManager.save("recipecollection");
+                    recipeManager.save("Recipe");
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

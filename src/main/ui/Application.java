@@ -11,7 +11,6 @@ public class Application {
     protected static FridageManager fridageManager = new FridageManager();
     protected static Fridge fridge = new Fridge();
     protected static ListOfRecipe recipeCollection = new ListOfRecipe();
-    protected static Boolean b = true;
 
     // EFFECTS: gets user's next string input
     private static int obtainIntInput() {
